@@ -1,4 +1,4 @@
-import { glob } from 'astro/loaders';
+import { glob , file} from 'astro/loaders';
 import { defineCollection, z } from 'astro:content';
 
 const blog = defineCollection({
@@ -21,15 +21,14 @@ const workCollection = defineCollection({
     title: z.string(),
     subtitle: z.string().optional(),
     description: z.string(),
-    publishDate: z.coerce.date(), // z.coerce.date() is great for converting string dates to Date objects
+    publishDate: z.coerce.date(),  //z.coerce.date() is great for converting string dates to Date objects
     tags: z.array(z.string()),
     email: z.string().email().optional(), // Use .email() for email validation
     website: z.string().url().optional(), // Use .url() for URL validation
     github: z.string().url().optional(),  // Use .url() for URL validation
-    img: z.string().optional(),
-    img_alt: z.string().optional(),
+    heroImage: z.string().optional(),
   }),
 });
 
-export const collections = { blog, 
-							work: workCollection };
+
+export const collections = { blog, work: workCollection };

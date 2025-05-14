@@ -18,6 +18,7 @@ import Skills from '../components/Skills.astro';
 
 // page images- import the profile pic from images/public
 import profile from '/public/images/profile.jpg';
+import { Image } from 'astro:assets';
 
 
 
@@ -51,12 +52,18 @@ const projects = (await getCollection('work'))
 					</div>
 				</Hero>
 <!-- add profilePic to an img -->
-				<img
+				<!-- <img
 					alt="Robert Stewart's face"
 					width="300"
 					height="440"
 					src={profile.src}
-				/>
+				/> -->
+				<Image
+					alt="Robert Stewart's face"
+					width="300"
+					height="440"
+					src='/public/images/profile.jpg'
+					/>
 			</header>
 
 			<Skills />
